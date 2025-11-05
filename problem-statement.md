@@ -1,4 +1,24 @@
-### Goal
+# Advanced Variations
+
+### Problem 1
+- Create two separate tensors: X_large (1,000,000 samples) and Y_small (1000 samples). 
+- Only use the first 1000 samples of $\text{X}$ for training.
+- Load the first 1000 samples of $\text{X}$ and the 1000 samples of $\text{Y}$.
+- Set the num_workers parameter to leverage multiprocessing (assume machine has 4 CPU cores).
+- Write the code for the $\text{Dataset}$ and $\text{DataLoader}$ setup.
+
+### Problem 2
+- Build an FNN with three hidden layers.
+- After defining the model, freeze the weights of the first linear layer so they are not updated during training.
+- Instead of $\text{nn.ReLU}$, define the activation function yourself as a $\text{lambda}$ function $f(z) = \frac{1}{2} (\sin(z) + 1)$ and place it between the layers.
+- Write the $\text{SimpleClassifier}$ class definition and the freezing code.
+
+### Problem 3
+- After $\text{loss.backward()}$, implement gradient clipping to ensure the total norm of the gradients doesn't exceed 1.0.
+- Modify the $\text{Adam optimizer}$ initialization to include an $\text{L2}$ penalty (weight decay) of $\mathbf{0.005}$.
+- After 20 epochs, verify that the $\text{first layer}$ of the model has not changed (due to the freezing in Problem 2).
+
+# Binary Classification
 
 Implement a complete, working PyTorch training loop for **binary classification** on a dataset of your choice (like the synthetic "Moons" data).
 
